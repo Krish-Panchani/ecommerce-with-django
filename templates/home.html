@@ -1,0 +1,31 @@
+{% extends 'traye1.html' %}
+{% load static %}
+
+{% block content %}
+  
+
+
+    <div id="carouselExampleIndicators" class="carousel slide w-50 mx-auto mt-5 h-50" data-bs-ride="carousel" data-bs-interval="1000">
+            <div class="carousel-indicators">
+                {% for photo in photos %}
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active"{% endif %} aria-label="Slide {{ forloop.counter }}">
+                    </button>
+                {% endfor %}
+            </div>
+            <div class="carousel-inner">
+                {% for photo in photos %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                        <img src="{{ photo.photos.url }}" class="d-block w-100" alt="Slide {{ forloop.counter }}">
+                    </div>
+                {% endfor %}
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+{% endblock %}

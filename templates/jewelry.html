@@ -1,0 +1,27 @@
+{% extends 'traye1.html' %}
+
+{% block content %}
+{% load static %}
+{% load static %}
+<style type="text/css">
+  .datacolor:hover{
+    background: #EC4ED2;
+  }
+</style>
+<div class="row mx-auto">
+  {% for data in jewe %}
+  <div class="card mx-auto mt-2" style="width: 18rem;">
+    <img class="card-img-top" src="{{ data.photos.url }}" alt="Card image cap">
+    <div class="card-body">
+      <h2 class="card-title" style="text-align: center;">{{ data.name }}</h2>
+      <p class="card-text">{{ data.message }}</p>
+      <h6 class="card-text" style="color: #565959;">M.R.P:&#8377;<del>{{ data.mainprice }}</del>({{ data.discount }}% OFF)</h6>
+      <h4 class="card-text">&#8377;{{ data.realprice }}</h4>
+      <a href="/login/" class="btn btn-primary datacolor">Buy Now</a>
+    </div>
+  </div>
+{% endfor %}
+</div>
+{% endblock %}
+
+
